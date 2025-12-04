@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<robot name="differential-robot">
+	<link name="body">
+		<visual>	
+			<origin rpy="0 0 0" xyz="0 0 0.1" />
+		
+			<geometry>
+				<cylinder radius="0.2" length="0.05" />
+			</geometry>
+	
+			<material name="white">
+				<color rgba="1 1 1 1" />
+			</material>
+		</visual>
+	</link>
+	
+		<link name="left_wheel">
+		<visual>	
+			<origin rpy="0 1.5707 1.5707" xyz="0 0.225 0.1" />
+		
+			<geometry>
+				<cylinder radius="0.1" length="0.05" />
+			</geometry>
+	
+			<material name="red">
+				<color rgba="1 0 0 1" />
+			</material>
+		</visual>
+	</link>
+	
+	<link name="right_wheel">
+		<visual>	
+			<origin rpy="0 1.5707 1.5707" xyz="0 -0.225 0.1" />
+		
+			<geometry>
+				<cylinder radius="0.1" length="0.05" />
+			</geometry>
+	
+			<material name="red">
+				<color rgba="1 0 0 1" />
+			</material>
+		</visual>
+	</link>
+	
+	<link name="front_castor">
+		<visual>	
+			<origin rpy="0 0 0" xyz="0.1 0 0.0375" />
+		
+			<geometry>
+				<sphere radius="0.0375"/>
+			</geometry>
+	
+			<material name="red">
+				<color rgba="1 0 0 1" />
+			</material>
+		</visual>
+	</link>
+	
+	<joint name="base_to_right_wheel" type="fixed">
+		<parent link="body" />
+		<child link="right_wheel" />
+
+	</joint>
+	<joint name="base_to_left_wheel" type="fixed">
+		<parent link="body" />
+		<child link="left_wheel" />
+
+	</joint>
+	<joint name="base_to_left_castor" type="fixed">
+		<parent link="body" />
+		<child link="front_castor" />
+
+	</joint>
+</robot>
